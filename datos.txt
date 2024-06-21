@@ -1,0 +1,17 @@
+Roles:
+
+-Administrador.
+-Rider.
+-Papá/Acudiente.
+-Profesor.
+
+Procesos:
+
+-Información.
+-Seguimientos.
+-Valoración.
+-Inscripción.
+-Asignación de grupo y transicion.
+-Uniformes; información talla, pedido y entrega.
+-Cartera; Pago de inscripción, mensualidad, precios y corbos.
+-Información tallas de bicicletas, componentes y accesorios de protección.
