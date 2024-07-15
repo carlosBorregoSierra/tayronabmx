@@ -6,6 +6,25 @@
     <link rel="icon" type="image/icon" href="Recursos/logo.png" sizes="16x16 24x24 36x36 48x48">
     <title>BMX</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+      <!--Valida que los campos requeridos esten diligenciados-->
+    <script defer> 
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('myForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const requiredInputs = form.querySelectorAll('[required]');
+  
+        form.addEventListener('input', function() {
+          let allFilled = true;
+          requiredInputs.forEach(input => {
+            if (input.value.trim() === '') {
+              allFilled = false;
+            }
+          });
+          submitBtn.disabled = !allFilled;
+        });
+      });
+    </script>
   </head>
   <body>
     <script src="index.js" defer></script>
@@ -27,7 +46,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Inscripción</a>
@@ -60,14 +79,14 @@
 
       <!--Formularios -->
       <!--Formulario Rider-->
-      <form class="d-flex">
+      <form id="formRider" class="d-flex">
         <div class="row mx-auto">
           <label for="informacion rider">Rider:</label>
           <div class="mb-2">
-            <input class="form-control" type="text" placeholder="Nombre rider" aria-label="nombre">
+            <input class="form-control" type="text" placeholder="Nombre rider" aria-label="nombre" required>
           </div>
           <div class="mb-2">
-            <input class="form-control" type="text" placeholder="Apellido rider" aria-label="primer apellido">
+            <input class="form-control" type="text" placeholder="Apellido rider" aria-label="primer apellido" required>
           </div>
           <div class="mb-2">
             <input class="form-control" type="text" placeholder="Segundo apellido rider" aria-label="segundo apellido">
@@ -92,19 +111,19 @@
             <label for="informacion rider">Acudiente:</label>
           </div>
           <div class="mb-2">
-            <input class="form-control" type="text" placeholder="Nombre acudiente" aria-label="nombre">
+            <input class="form-control" type="text" placeholder="Nombre acudiente" aria-label="nombre" required>
           </div>
           <div class="mb-2">
-            <input class="form-control" type="text" placeholder="Apellido acudiente" aria-label="primer apellido">
+            <input class="form-control" type="text" placeholder="Apellido acudiente" aria-label="primer apellido" required>
           </div>
           <div class="mb-2">
             <input class="form-control" type="text" placeholder="Segundo apellido acudiente" aria-label="segundo apellido">
           </div>
           <div class="mb-2">
-            <input class="form-control" type="email" placeholder="Email acudiente" aria-label="segundo apellido">
+            <input class="form-control" type="email" placeholder="Email acudiente" aria-label="email" required>
           </div>
           <div class="mb-2">
-            <input class="form-control" type="tel" placeholder="Celular (Medio de cobro)">
+            <input class="form-control" type="tel" placeholder="Celular (Medio de cobro)" required>
           </div>
           <div class="row row-cols-auto">
             <label for="">Terminos:</label>
@@ -122,9 +141,9 @@
 
         </div>
       </form>
-      
+        
       <div>
-        <button class="btn btn-primary" type="submit" onclick='alert("Registro exitoso")'><a style="color: white; text-decoration: none;" href="inscrpcion.html">Enviar</button>
+        <button id="btnEnvio" class="btn btn-primary" type="submit" onclick='alert("Registro exitoso")'><a style="color: white; text-decoration: none;" href="inscrpcion.html">Enviar</button>
         <button type="button" class="btn btn-danger" onclick="window.history.back()">Cancelar</button>    
       </div>
 
